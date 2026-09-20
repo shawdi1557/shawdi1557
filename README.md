@@ -178,24 +178,10 @@
 <h4>Design and Creative</h4>
 <p>
   <img src="https://img.shields.io/badge/-Figma-0D1117?style=for-the-badge&logo=figma&logoColor=F24E1E" alt="Figma" />
-  <img src="https://img.shields.io/badge/-Canva-0D1117?style=for-the-badge&logo=canva&logoColor=00C4CC" alt="Canva" />
-  <img src="https://img.shields.io/badge/-Photoshop-0D1117?style=for-the-badge&logo=adobephotoshop&logoColor=31A8FF" alt="Adobe Photoshop" />
-  <img src="https://img.shields.io/badge/-After_Effects-0D1117?style=for-the-badge&logo=adobeaftereffects&logoColor=9999FF" alt="Adobe After Effects" />
+  <img src="https://img.shields.io/badge/-Canva-0D1117?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDBDNENDIiBzdHJva2Utd2lkdGg9IjIiLz48dGV4dCB4PSIxMiIgeT0iMTYuOCIgZm9udC1mYW1pbHk9IkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMDBDNENDIj5DPC90ZXh0Pjwvc3ZnPg%3D%3D" alt="Canva" />
+  <img src="https://img.shields.io/badge/-Photoshop-0D1117?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHJlY3QgeD0iMS41IiB5PSIxLjUiIHdpZHRoPSIyMSIgaGVpZ2h0PSIyMSIgcng9IjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzMxQThGRiIgc3Ryb2tlLXdpZHRoPSIyIi8%2BPHRleHQgeD0iMTIiIHk9IjE2IiBmb250LWZhbWlseT0iQXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI3MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMzMUE4RkYiPlBzPC90ZXh0Pjwvc3ZnPg%3D%3D" alt="Adobe Photoshop" />
+  <img src="https://img.shields.io/badge/-After_Effects-0D1117?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHJlY3QgeD0iMS41IiB5PSIxLjUiIHdpZHRoPSIyMSIgaGVpZ2h0PSIyMSIgcng9IjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzk5OTlGRiIgc3Ryb2tlLXdpZHRoPSIyIi8%2BPHRleHQgeD0iMTIiIHk9IjE2IiBmb250LWZhbWlseT0iQXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI3MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM5OTk5RkYiPkFlPC90ZXh0Pjwvc3ZnPg%3D%3D" alt="Adobe After Effects" />
 </p>
-
-</div>
-
-<br />
-
-<!-- ======================= CURRENTLY WORKING ON ======================= -->
-
-<h2 align="center"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=2500&pause=1000&color=39FF14&center=true&vCenter=true&repeat=false&width=640&height=50&lines=What+I%27m+Currently+Working+On" alt="What I'm Currently Working On" /></h2>
-
-<div align="center">
-
-<img src="./assets/glow-line.svg" width="600" alt="Animated glowing divider" />
-
-<img src="./assets/currently-working.svg" width="640" alt="Currently working on: Software Developer role, AI-powered applications, enterprise and ERP systems, cybersecurity and SOC automation, improving software engineering skills, exploring modern developer tools and technologies" />
 
 </div>
 
