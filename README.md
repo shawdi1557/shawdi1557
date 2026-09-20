@@ -46,10 +46,6 @@
 <!-- Current streak, longest streak and total contributions -->
 <img src="https://streak-stats.demolab.com/?user=shawdi1557&hide_border=true&background=0D1117&stroke=30363D&ring=39FF14&fire=00E5FF&currStreakNum=39FF14&currStreakLabel=39FF14&sideNums=FFFFFF&sideLabels=C9D1D9&dates=8B949E" width="600" alt="GitHub streak stats: current streak, longest streak and total contributions" />
 
-<br />
-
-<img src="https://github-readme-stats.vercel.app/api?username=shawdi1557&show_icons=true&hide_border=true&include_all_commits=true&bg_color=0D1117&title_color=39FF14&icon_color=00E5FF&text_color=C9D1D9&ring_color=39FF14" width="420" alt="GitHub stats card: stars, commits, pull requests, issues and contributions" />
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=shawdi1557&theme=github_dark" width="420" alt="GitHub profile details card" />
 
 </div>
 
@@ -81,9 +77,7 @@
 <div align="center">
 
 <img src="./assets/glow-line.svg" width="100%" alt="Animated glowing border, top" />
-<a href="https://github.com/shawdi1557">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=shawdi1557&bg_color=0D1117&color=39FF14&line=39FF14&point=00E5FF&area=true&area_color=39FF14&hide_border=true&radius=10" width="100%" alt="GitHub contribution activity graph" />
-</a>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=shawdi1557&theme=github_dark" width="560" alt="GitHub profile details and yearly contribution overview" />
 <img src="./assets/glow-line.svg" width="100%" alt="Animated glowing border, bottom" />
 
 </div>
@@ -98,14 +92,9 @@
 
 <img src="./assets/glow-line.svg" width="600" alt="Animated glowing divider" />
 
-<!-- Auto-generated trophies, computed from your real GitHub data -->
-<img src="https://github-profile-trophy.vercel.app/?username=shawdi1557&theme=darkhub&no-frame=true&margin-w=10&margin-h=10&column=7" width="100%" alt="GitHub trophies earned: stars, commits, followers, pull requests, issues, repositories and experience" />
-
-<br />
-
 <!-- Stars, commits, pull requests, issues and repositories, all live -->
 <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=shawdi1557&theme=github_dark" width="420" alt="Stars earned, commits, pull requests, issues and contributions" />
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=shawdi1557&theme=github_dark" width="420" alt="Repositories per language" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=shawdi1557&theme=github_dark&utcOffset=5" width="420" alt="Most productive time of day based on commits" />
 
 <!--
   OFFICIAL GITHUB ACHIEVEMENT BADGES (Pull Shark, YOLO, Quickdraw, Pair Extraordinaire, Galaxy Brain, ...)
@@ -137,7 +126,7 @@
 
 <img src="./assets/glow-line.svg" width="600" alt="Animated glowing divider" />
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shawdi1557&layout=donut&langs_count=8&hide_border=true&bg_color=0D1117&title_color=39FF14&text_color=C9D1D9" width="420" alt="Most used programming languages across my repositories" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=shawdi1557&theme=github_dark" width="420" alt="Most used programming languages across my repositories" />
 <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=shawdi1557&theme=github_dark" width="420" alt="Most used languages by commits" />
 
 </div>
