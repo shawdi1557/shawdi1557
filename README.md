@@ -221,15 +221,3 @@
 </p>
 
 </div>
-
-<br />
-
-<!-- ======================= FOOTER ======================= -->
-
-<div align="center">
-
-<img src="./assets/divider.svg" width="100%" alt="Animated wave divider" />
-
-<img src="./assets/footer.svg" width="100%" alt="Thanks for stopping by! Keep building. Keep learning. Keep shipping." />
-
-</div>
