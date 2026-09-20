@@ -22,17 +22,219 @@ concurrency:
   group: snake
   cancel-in-progress: true
 
+env:
+  # The snake starts at 4 segments and gains one for every contribution it eats,
+  # until it reaches this length. Change the number to make it shorter or longer.
+  SNAKE_MAX_LENGTH: "20"
+  # How many contributions it must eat to gain one segment (1 = every single contribution).
+  SNAKE_GROW_EVERY: "3"
+
 jobs:
   generate:
     name: Generate snake animation
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Prepare output folder
         run: mkdir -p output
 
-      # Renders the contribution graph of the repo owner as an animated SVG
-      - name: Generate snake SVGs
+      # ---- Growing snake: build Platane/snk from source with a small patch ----
+      - name: Get snk source (pinned version)
+        id: src
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: Platane/snk
+          ref: a041d6c27ba561a39f5be9c26a784812765e434b
+          path: snk
+
+      - name: Set up Bun
+        id: bun
+        continue-on-error: true
+        uses: oven-sh/setup-bun@v2
+
+      - name: Patch snk so the snake grows when it eats
+        id: patch
+        continue-on-error: true
+        working-directory: snk/packages/svg-creator
+        run: |
+          set -e
+          cat > snake.ts <<'EOF'
+          import { getSnakeLength, snakeToCells } from "@snk/types/snake";
+          import type { Snake } from "@snk/types/snake";
+          import type { Point } from "@snk/types/point";
+          import { h } from "./xml-utils";
+          import { createAnimation } from "./css-utils";
+
+          export type Options = {
+            colorSnake: string;
+            sizeCell: number;
+            sizeDot: number;
+          };
+
+          const lerp = (k: number, a: number, b: number) => (1 - k) * a + k * b;
+
+          // The snake gains one segment every time it eats a contribution, up to this length.
+          const MAX_LENGTH = Number(process.env.SNAKE_MAX_LENGTH ?? 14);
+          // Number of contributions the snake must eat to gain one segment (1 = every contribution).
+          const GROW_EVERY = Math.max(1, Number(process.env.SNAKE_GROW_EVERY ?? 1));
+
+          export const createSnake = (
+            chain: Snake[],
+            { sizeCell, sizeDot }: Options,
+            duration: number,
+            eatTimes: number[] = [],
+          ) => {
+            const snakeN = chain[0] ? getSnakeLength(chain[0]) : 0;
+
+            const snakeParts: Point[][] = Array.from({ length: snakeN }, () => []);
+
+            for (const snake of chain) {
+              const cells = snakeToCells(snake);
+              for (let i = cells.length; i--; ) snakeParts[i].push(cells[i]);
+            }
+
+            const svgElements = snakeParts.map((_, i, { length }) => {
+              // compute snake part size
+              const dMin = sizeDot * 0.8;
+              const dMax = sizeCell * 0.9;
+              const iMax = Math.min(4, length);
+              const u = (1 - Math.min(i, iMax) / iMax) ** 2;
+              const s = lerp(u, dMin, dMax);
+
+              const m = (sizeCell - s) / 2;
+
+              const r = Math.min(4.5, (4 * s) / sizeDot);
+
+              return h("rect", {
+                class: `s s${i}`,
+                x: m.toFixed(1),
+                y: m.toFixed(1),
+                width: s.toFixed(1),
+                height: s.toFixed(1),
+                rx: r.toFixed(1),
+                ry: r.toFixed(1),
+              });
+            });
+
+            const transform = ({ x, y }: Point) =>
+              `transform:translate(${x * sizeCell}px,${y * sizeCell}px)`;
+
+            const styles = [
+              `.s{ 
+                shape-rendering: geometricPrecision;
+                fill: var(--cs);
+                animation: none linear ${duration}ms infinite
+              }`,
+
+              ...snakeParts.map((positions, i) => {
+                const id = `s${i}`;
+                const animationName = id;
+
+                const keyframes = removeInterpolatedPositions(
+                  positions.map((tr, i, { length }) => ({ ...tr, t: i / length })),
+                ).map(({ t, ...p }) => ({ t, style: transform(p) }));
+
+                return [
+                  createAnimation(animationName, keyframes),
+
+                  `.s.${id}{
+                    ${transform(positions[0])};
+                    animation-name: ${animationName}
+                  }`,
+                ];
+              }),
+            ].flat();
+
+            // ---- growing body -------------------------------------------------------
+            // Extra segment i follows the exact path of the head, i steps behind
+            // (same keyframes as the head, delayed). It fades in the moment the snake
+            // eats its (i - snakeN + 1)th group of GROW_EVERY contributions.
+            const stepMs = duration / Math.max(1, chain.length);
+            const extraN = Math.max(
+              0,
+              Math.min(MAX_LENGTH - snakeN, Math.floor(eatTimes.length / GROW_EVERY)),
+            );
+            const extraIdx = Array.from({ length: extraN }, (_, j) => snakeN + j);
+
+            const extraElements = extraIdx.map((i) => {
+              const s = sizeDot * 0.8;
+              const m = (sizeCell - s) / 2;
+              const r = Math.min(4.5, (4 * s) / sizeDot);
+              return h("rect", {
+                class: `s s${i}`,
+                x: m.toFixed(1),
+                y: m.toFixed(1),
+                width: s.toFixed(1),
+                height: s.toFixed(1),
+                rx: r.toFixed(1),
+                ry: r.toFixed(1),
+              });
+            });
+
+            const extraStyles = extraIdx
+              .map((i, j) => {
+                const t = eatTimes[Math.min(eatTimes.length - 1, (j + 1) * GROW_EVERY - 1)];
+                const b = Math.min(99.4, Math.max(0.002, t * 100));
+                return [
+                  `@keyframes g${i}{0%{opacity:0}${(b - 0.001).toFixed(3)}%{opacity:0}${b.toFixed(3)}%{opacity:1}99.5%{opacity:1}100%{opacity:0}}`,
+                  `.s.s${i}{ ${transform(snakeParts[0][0])}; opacity: 0; animation-name: s0, g${i}; animation-delay: ${Math.round(i * stepMs)}ms, 0ms }`,
+                ];
+              })
+              .flat();
+
+            return {
+              svgElements: [...svgElements, ...extraElements],
+              styles: [...styles, ...extraStyles],
+            };
+          };
+
+          const removeInterpolatedPositions = <T extends Point>(arr: T[]) =>
+            arr.filter((u, i, arr) => {
+              if (i - 1 < 0 || i + 1 >= arr.length) return true;
+
+              const a = arr[i - 1];
+              const b = arr[i + 1];
+
+              const ex = (a.x + b.x) / 2;
+              const ey = (a.y + b.y) / 2;
+
+              // return true;
+              return !(Math.abs(ex - u.x) < 0.01 && Math.abs(ey - u.y) < 0.01);
+            });
+          EOF
+          python3 - <<'PY'
+          p = "index.ts"
+          s = open(p).read()
+          old = "createSnake(chain, drawOptions, duration),"
+          new = ("createSnake(chain, drawOptions, duration, "
+                 "livingCells.filter((c) => c.t !== null)"
+                 ".map((c) => c.t as number).sort((a, b) => a - b)),")
+          assert s.count(old) == 1, "snk changed: patch target not found"
+          open(p, "w").write(s.replace(old, new))
+          PY
+
+      - name: Install snk dependencies
+        id: deps
+        continue-on-error: true
+        working-directory: snk
+        run: bun install
+
+      - name: Generate growing snake SVGs
+        id: grow
+        continue-on-error: true
+        working-directory: snk
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          bun packages/generate-snake-animation/cli.ts \
+            --github_user="${{ github.repository_owner }}" \
+            --output="../output/github-contribution-grid-snake.svg" \
+            --output="../output/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=39ff14"
+
+      # ---- Fallback: if anything above failed, use the standard fixed-length snake ----
+      - name: Fallback to standard snake
+        if: ${{ hashFiles('output/github-contribution-grid-snake-dark.svg') == '' }}
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
