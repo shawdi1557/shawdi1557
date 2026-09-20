@@ -1,38 +1,260 @@
-# 💫 About Me:
-Hello! I'm **Akshay Biju**, a B.Tech graduate in Computer Science and Engineering with a passion for Software Development. I've contributed to built projects such as **Grab N Go**, a supermarket assistant web application using Python Flask and Firebase, an **AI-Based Quiz Generator** with Django REST and React, and **Cartify GnG** a large scale Supermarket Assistant System ,I enjoy turning ideas into practical solutions and continuously expanding my skills in modern web technologies while contributing to impactful software projects.
+<!--
+  ============================================================
+  SETUP: replace every occurrence of shawdi1557 with
+  your real GitHub username (see the setup instructions).
+  Linux/macOS:  sed -i 's/shawdi1557/yourname/g' README.md
+  ============================================================
+-->
 
-## 🌐 Socials:
-[![Behance](https://img.shields.io/badge/Behance-1769ff?logo=behance&logoColor=white)](https://behance.net/akshaybiju9) [![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.gg/1378651381606645780) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/akkshhhaay) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/akshay-biju1557) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://www.youtube.com/@akshay6003) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:akshaybiju638@gmail.com) 
+<div align="center">
 
-# 💻 Tech Stack:
-![Python](https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
-![REST API](https://img.shields.io/badge/REST_API-02569B?style=for-the-badge&logo=fastapi&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
-![Canva](https://img.shields.io/badge/Canva-00C4CC?style=for-the-badge&logo=canva&logoColor=white)
-![Adobe Photoshop](https://img.shields.io/badge/Photoshop-31A8FF?style=for-the-badge&logo=adobephotoshop&logoColor=white)
-![Adobe After Effects](https://img.shields.io/badge/After_Effects-9999FF?style=for-the-badge&logo=adobeaftereffects&logoColor=white)
-# 📊 GitHub Stats:
-![](https://github-readme-stats.shion.dev/api?username=shawdi1557&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
-![](https://streak-stats.demolab.com/?user=shawdi1557&theme=dark&hide_border=false)<br/>
-![](https://github-readme-stats.shion.dev/api/top-langs/?username=shawdi1557&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
+<img src="./assets/hero.svg" width="100%" alt="AKSHAY BIJU - animated developer banner" />
 
-## 🏆 GitHub Trophies
-![](https://github-profile-trophy.vercel.app/?username=shawdi1557&theme=radical&no-frame=false&no-bg=true&margin-w=4)
+<img src="./assets/about-me.svg" width="420" alt="About Me" />
 
-### 🔝 Top Contributed Repo
-![](https://github-contributor-stats.vercel.app/api?username=shawdi1557&limit=5&theme=dark&combine_all_yearly_contributions=true)
+<p>
+  <b>B.Tech Computer Science Graduate</b> &nbsp;|&nbsp; <b>Software Developer at MINTS GLOBAL</b><br />
+  Interested in modern software engineering, AI, cloud technologies and cybersecurity.<br />
+  I love building useful products and experimenting with new technologies.
+</p>
 
----
-[![](https://komarev.com/ghpvc/?username=shawdi1557&icon=0&color=0)](https://visitcount.itsvg.in)
+<a href="https://github.com/shawdi1557">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1200&color=00E5FF&center=true&vCenter=true&width=560&height=45&lines=Software+Developer;Computer+Science+Engineer;Creative+Developer;AI+%26+Web+Enthusiast" alt="Animated typing banner: Software Developer, Computer Science Engineer, Creative Developer, AI and Web Enthusiast" />
+</a>
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+<img src="./assets/divider.svg" width="100%" alt="Animated wave divider" />
+
+</div>
+
+<br />
+
+<!-- ======================= GITHUB ACTIVITY ======================= -->
+
+<h2 align="center"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=2500&pause=1000&color=39FF14&center=true&vCenter=true&repeat=false&width=560&height=50&lines=GitHub+Activity" alt="GitHub Activity" /></h2>
+
+<div align="center">
+
+<img src="./assets/glow-line.svg" width="600" alt="Animated glowing divider" />
+
+<p>
+  <a href="https://github.com/shawdi1557?tab=followers"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Fusers%2Fshawdi1557&query=%24.followers&label=Followers&style=for-the-badge&labelColor=0D1117&color=39FF14&logo=github&logoColor=white" alt="GitHub followers count" /></a>
+  <a href="https://github.com/shawdi1557?tab=following"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Fusers%2Fshawdi1557&query=%24.following&label=Following&style=for-the-badge&labelColor=0D1117&color=00E5FF&logo=github&logoColor=white" alt="GitHub following count" /></a>
+  <a href="https://github.com/shawdi1557?tab=repositories"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Fusers%2Fshawdi1557&query=%24.public_repos&label=Repositories&style=for-the-badge&labelColor=0D1117&color=39FF14&logo=github&logoColor=white" alt="Number of public repositories" /></a>
+  <img src="https://komarev.com/ghpvc/?username=shawdi1557&label=Profile+Views&style=for-the-badge&labelColor=0D1117&color=00E5FF" alt="GitHub profile views counter" />
+</p>
+
+<!-- Current streak, longest streak and total contributions -->
+<img src="https://streak-stats.demolab.com/?user=shawdi1557&hide_border=true&background=0D1117&stroke=30363D&ring=39FF14&fire=00E5FF&currStreakNum=39FF14&currStreakLabel=39FF14&sideNums=FFFFFF&sideLabels=C9D1D9&dates=8B949E" width="600" alt="GitHub streak stats: current streak, longest streak and total contributions" />
+
+<br />
+
+<img src="https://github-readme-stats.vercel.app/api?username=shawdi1557&show_icons=true&hide_border=true&include_all_commits=true&bg_color=0D1117&title_color=39FF14&icon_color=00E5FF&text_color=C9D1D9&ring_color=39FF14" width="420" alt="GitHub stats card: stars, commits, pull requests, issues and contributions" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=shawdi1557&theme=github_dark" width="420" alt="GitHub profile details card" />
+
+</div>
+
+<br />
+
+<!-- ======================= CONTRIBUTION SNAKE ======================= -->
+
+<h2 align="center"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=2500&pause=1000&color=39FF14&center=true&vCenter=true&repeat=false&width=560&height=50&lines=Contribution+Snake" alt="Contribution Snake" /></h2>
+
+<div align="center">
+
+<img src="./assets/glow-line.svg" width="600" alt="Animated glowing divider" />
+
+<!-- Generated by .github/workflows/snake.yml and stored on the "output" branch -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/shawdi1557/shawdi1557/output/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/shawdi1557/shawdi1557/output/github-contribution-grid-snake.svg" />
+  <img alt="Animated snake eating my GitHub contribution graph" src="https://raw.githubusercontent.com/shawdi1557/shawdi1557/output/github-contribution-grid-snake-dark.svg" width="100%" />
+</picture>
+
+</div>
+
+<br />
+
+<!-- ======================= CONTRIBUTION GRAPH ======================= -->
+
+<h2 align="center"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=2500&pause=1000&color=39FF14&center=true&vCenter=true&repeat=false&width=560&height=50&lines=Contribution+Graph" alt="Contribution Graph" /></h2>
+
+<div align="center">
+
+<img src="./assets/glow-line.svg" width="100%" alt="Animated glowing border, top" />
+<a href="https://github.com/shawdi1557">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=shawdi1557&bg_color=0D1117&color=39FF14&line=39FF14&point=00E5FF&area=true&area_color=39FF14&hide_border=true&radius=10" width="100%" alt="GitHub contribution activity graph" />
+</a>
+<img src="./assets/glow-line.svg" width="100%" alt="Animated glowing border, bottom" />
+
+</div>
+
+<br />
+
+<!-- ======================= ACHIEVEMENTS ======================= -->
+
+<h2 align="center"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=2500&pause=1000&color=39FF14&center=true&vCenter=true&repeat=false&width=560&height=50&lines=Achievements+%26+Milestones" alt="Achievements and Milestones" /></h2>
+
+<div align="center">
+
+<img src="./assets/glow-line.svg" width="600" alt="Animated glowing divider" />
+
+<!-- Auto-generated trophies, computed from your real GitHub data -->
+<img src="https://github-profile-trophy.vercel.app/?username=shawdi1557&theme=darkhub&no-frame=true&margin-w=10&margin-h=10&column=7" width="100%" alt="GitHub trophies earned: stars, commits, followers, pull requests, issues, repositories and experience" />
+
+<br />
+
+<!-- Stars, commits, pull requests, issues and repositories, all live -->
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=shawdi1557&theme=github_dark" width="420" alt="Stars earned, commits, pull requests, issues and contributions" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=shawdi1557&theme=github_dark" width="420" alt="Repositories per language" />
+
+<!--
+  OFFICIAL GITHUB ACHIEVEMENT BADGES (Pull Shark, YOLO, Quickdraw, Pair Extraordinaire, Galaxy Brain, ...)
+  GitHub has no API for these, so they cannot be fetched dynamically and are NOT claimed here.
+  To show the ones you have earned:
+    1. Open https://github.com/shawdi1557?tab=achievements
+    2. Right-click a badge > Copy image address
+    3. Uncomment the block below and paste each URL, delete the rows you have not earned.
+
+<br />
+<table>
+  <tr>
+    <td align="center"><img src="PASTE_BADGE_IMAGE_URL_HERE" width="90" alt="Pull Shark achievement badge" /><br /><sub>Pull Shark</sub></td>
+    <td align="center"><img src="PASTE_BADGE_IMAGE_URL_HERE" width="90" alt="YOLO achievement badge" /><br /><sub>YOLO</sub></td>
+    <td align="center"><img src="PASTE_BADGE_IMAGE_URL_HERE" width="90" alt="Quickdraw achievement badge" /><br /><sub>Quickdraw</sub></td>
+  </tr>
+</table>
+-->
+
+</div>
+
+<br />
+
+<!-- ======================= MOST USED LANGUAGES ======================= -->
+
+<h2 align="center"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=2500&pause=1000&color=39FF14&center=true&vCenter=true&repeat=false&width=560&height=50&lines=Most+Used+Languages" alt="Most Used Languages" /></h2>
+
+<div align="center">
+
+<img src="./assets/glow-line.svg" width="600" alt="Animated glowing divider" />
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shawdi1557&layout=donut&langs_count=8&hide_border=true&bg_color=0D1117&title_color=39FF14&text_color=C9D1D9" width="420" alt="Most used programming languages across my repositories" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=shawdi1557&theme=github_dark" width="420" alt="Most used languages by commits" />
+
+</div>
+
+<br />
+
+<!-- ======================= TECH STACK ======================= -->
+
+<h2 align="center"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=2500&pause=1000&color=39FF14&center=true&vCenter=true&repeat=false&width=560&height=50&lines=Tech+Stack" alt="Tech Stack" /></h2>
+
+<div align="center">
+
+<img src="./assets/tech-marquee.svg" width="100%" alt="Scrolling list of my technologies" />
+
+<h4>Languages</h4>
+<p>
+  <img src="https://img.shields.io/badge/-Python-0D1117?style=for-the-badge&logo=python&logoColor=3776AB" alt="Python" />
+  <img src="https://img.shields.io/badge/-Java-0D1117?style=for-the-badge&logo=openjdk&logoColor=ED8B00" alt="Java" />
+  <img src="https://img.shields.io/badge/-C-0D1117?style=for-the-badge&logo=c&logoColor=A8B9CC" alt="C" />
+  <img src="https://img.shields.io/badge/-JavaScript-0D1117?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="JavaScript" />
+</p>
+
+<h4>Frontend</h4>
+<p>
+  <img src="https://img.shields.io/badge/-HTML5-0D1117?style=for-the-badge&logo=html5&logoColor=E34F26" alt="HTML5" />
+  <img src="https://img.shields.io/badge/-CSS3-0D1117?style=for-the-badge&logo=css&logoColor=1572B6" alt="CSS3" />
+  <img src="https://img.shields.io/badge/-React-0D1117?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+</p>
+
+<h4>Backend</h4>
+<p>
+  <img src="https://img.shields.io/badge/-Django-0D1117?style=for-the-badge&logo=django&logoColor=44B78B" alt="Django" />
+  <img src="https://img.shields.io/badge/-REST_API-0D1117?style=for-the-badge&logo=swagger&logoColor=85EA2D" alt="REST API" />
+</p>
+
+<h4>Database and Backend Services</h4>
+<p>
+  <img src="https://img.shields.io/badge/-Firebase-0D1117?style=for-the-badge&logo=firebase&logoColor=FFCA28" alt="Firebase" />
+  <img src="https://img.shields.io/badge/-MySQL-0D1117?style=for-the-badge&logo=mysql&logoColor=4479A1" alt="MySQL" />
+  <img src="https://img.shields.io/badge/-Supabase-0D1117?style=for-the-badge&logo=supabase&logoColor=3ECF8E" alt="Supabase" />
+</p>
+
+<h4>DevOps and Version Control</h4>
+<p>
+  <img src="https://img.shields.io/badge/-Docker-0D1117?style=for-the-badge&logo=docker&logoColor=2496ED" alt="Docker" />
+  <img src="https://img.shields.io/badge/-Git-0D1117?style=for-the-badge&logo=git&logoColor=F05032" alt="Git" />
+</p>
+
+<h4>Design and Creative</h4>
+<p>
+  <img src="https://img.shields.io/badge/-Figma-0D1117?style=for-the-badge&logo=figma&logoColor=F24E1E" alt="Figma" />
+  <img src="https://img.shields.io/badge/-Canva-0D1117?style=for-the-badge&logo=canva&logoColor=00C4CC" alt="Canva" />
+  <img src="https://img.shields.io/badge/-Photoshop-0D1117?style=for-the-badge&logo=adobephotoshop&logoColor=31A8FF" alt="Adobe Photoshop" />
+  <img src="https://img.shields.io/badge/-After_Effects-0D1117?style=for-the-badge&logo=adobeaftereffects&logoColor=9999FF" alt="Adobe After Effects" />
+</p>
+
+</div>
+
+<br />
+
+<!-- ======================= CURRENTLY WORKING ON ======================= -->
+
+<h2 align="center"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=2500&pause=1000&color=39FF14&center=true&vCenter=true&repeat=false&width=640&height=50&lines=What+I%27m+Currently+Working+On" alt="What I'm Currently Working On" /></h2>
+
+<div align="center">
+
+<img src="./assets/glow-line.svg" width="600" alt="Animated glowing divider" />
+
+<img src="./assets/currently-working.svg" width="640" alt="Currently working on: Software Developer role, AI-powered applications, enterprise and ERP systems, cybersecurity and SOC automation, improving software engineering skills, exploring modern developer tools and technologies" />
+
+</div>
+
+<br />
+
+<!-- ======================= CONNECT ======================= -->
+
+<h2 align="center"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=2500&pause=1000&color=39FF14&center=true&vCenter=true&repeat=false&width=560&height=50&lines=Connect+With+Me" alt="Connect With Me" /></h2>
+
+<div align="center">
+
+<img src="./assets/glow-line.svg" width="600" alt="Animated glowing divider" />
+
+<p>
+  <a href="https://www.behance.net/akshaybiju9"><img src="https://img.shields.io/badge/-Behance-0D1117?style=for-the-badge&logo=behance&logoColor=1769FF" alt="Behance profile" /></a>
+  <a href="https://discord.com/invite/1378651381606645780"><img src="https://img.shields.io/badge/-Discord-0D1117?style=for-the-badge&logo=discord&logoColor=5865F2" alt="Join my Discord server" /></a>
+  <a href="https://www.instagram.com/akkshhhaay"><img src="https://img.shields.io/badge/-Instagram-0D1117?style=for-the-badge&logo=instagram&logoColor=E4405F" alt="Instagram profile" /></a>
+  <a href="https://www.linkedin.com/in/akshay-biju1557/"><img src="https://img.shields.io/badge/-LinkedIn-0D1117?style=for-the-badge&logo=linkedin&logoColor=0A66C2" alt="LinkedIn profile" /></a>
+  <a href="https://www.youtube.com/@akshay6003"><img src="https://img.shields.io/badge/-YouTube-0D1117?style=for-the-badge&logo=youtube&logoColor=FF0000" alt="YouTube channel" /></a>
+  <a href="mailto:akshaybiju638@gmail.com"><img src="https://img.shields.io/badge/-Email-0D1117?style=for-the-badge&logo=gmail&logoColor=EA4335" alt="Send me an email" /></a>
+</p>
+
+</div>
+
+<br />
+
+<!-- ======================= CONTACT ======================= -->
+
+<h2 align="center"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=2500&pause=1000&color=39FF14&center=true&vCenter=true&repeat=false&width=640&height=50&lines=Let%27s+Build+Something+Together" alt="Let's Build Something Together" /></h2>
+
+<div align="center">
+
+<img src="./assets/glow-line.svg" width="600" alt="Animated glowing divider" />
+
+<p>
+  <a href="mailto:akshaybiju638@gmail.com"><img src="https://img.shields.io/badge/akshaybiju638%40gmail.com-0D1117?style=for-the-badge&logo=gmail&logoColor=39FF14" alt="Email akshaybiju638@gmail.com" /></a>
+</p>
+
+</div>
+
+<br />
+
+<!-- ======================= FOOTER ======================= -->
+
+<div align="center">
+
+<img src="./assets/divider.svg" width="100%" alt="Animated wave divider" />
+
+<img src="./assets/footer.svg" width="100%" alt="Thanks for stopping by! Keep building. Keep learning. Keep shipping." />
+
+</div>
