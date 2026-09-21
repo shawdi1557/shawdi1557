@@ -242,6 +242,197 @@ jobs:
             output/github-contribution-grid-snake.svg
             output/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=39ff14
 
+      # ---- Contribution charts: animated bar graph + donut built from your real GitHub data ----
+      - name: Generate contribution charts
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LOGIN: ${{ github.repository_owner }}
+        run: |
+          python3 - <<'PY'
+          import datetime
+          import html
+          import json
+          import math
+          import os
+          import urllib.request
+
+          LOGIN = os.environ["LOGIN"]
+          TOKEN = os.environ["GH_TOKEN"]
+          OUT = "output"
+
+          GREEN, CYAN = "#39ff14", "#00e5ff"
+          FONT = "'Segoe UI','Helvetica Neue',Arial,sans-serif"
+
+          QUERY = """
+          query($login: String!) {
+            user(login: $login) {
+              contributionsCollection {
+                totalCommitContributions
+                totalIssueContributions
+                totalPullRequestContributions
+                totalPullRequestReviewContributions
+                restrictedContributionsCount
+                contributionCalendar {
+                  totalContributions
+                  weeks { contributionDays { date contributionCount } }
+                }
+              }
+            }
+          }
+          """
+
+
+          def load():
+              req = urllib.request.Request(
+                  "https://api.github.com/graphql",
+                  data=json.dumps({"query": QUERY, "variables": {"login": LOGIN}}).encode(),
+                  headers={
+                      "Authorization": "bearer " + TOKEN,
+                      "Content-Type": "application/json",
+                      "User-Agent": "profile-readme-charts",
+                  },
+              )
+              data = json.load(urllib.request.urlopen(req, timeout=60))
+              user = (data.get("data") or {}).get("user")
+              if not user:
+                  raise SystemExit("GitHub API returned no user data: " + json.dumps(data)[:400])
+              return user["contributionsCollection"]
+
+
+          def nice_top(v):
+              if v <= 0:
+                  return 4, 1
+              raw = v / 4
+              mag = 10 ** math.floor(math.log10(raw)) if raw >= 1 else 1
+              step = math.ceil(raw / mag) * mag
+              return step * 4, step
+
+
+          def bar_chart(col):
+              cal = col["contributionCalendar"]
+              months = {}
+              for week in cal["weeks"]:
+                  for day in week["contributionDays"]:
+                      months[day["date"][:7]] = months.get(day["date"][:7], 0) + day["contributionCount"]
+              keys = sorted(months)[-12:]
+              vals = [months[k] for k in keys]
+              labels = [datetime.datetime.strptime(k + "-01", "%Y-%m-%d").strftime("%b") for k in keys]
+
+              W, H = 600, 312
+              left, right, top, bottom = 48, 16, 72, 262
+              ph = bottom - top
+              top_val, step = nice_top(max(vals) if vals else 0)
+              n = max(1, len(vals))
+              slot = (W - left - right) / n
+              bw = slot * 0.56
+              peak = vals.index(max(vals)) if vals and max(vals) > 0 else -1
+
+              o = []
+              o.append(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-labelledby="t">')
+              o.append(f'<title id="t">Contributions per month over the last year</title>')
+              o.append(f'''<defs>
+          <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{GREEN}"/><stop offset="1" stop-color="{CYAN}"/></linearGradient>
+          <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#010409"/></linearGradient>
+          </defs>''')
+              o.append(f'<rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="16" fill="url(#bg)" stroke="#30363d"/>')
+              o.append(f'<text x="24" y="36" font-family="{FONT}" font-size="18" font-weight="700" fill="#e6edf3">Contributions per month</text>')
+              o.append(f'<text x="24" y="56" font-family="{FONT}" font-size="12" fill="#8b949e">Last 12 months</text>')
+              o.append(f'<text x="{W-24}" y="36" text-anchor="end" font-family="{FONT}" font-size="18" font-weight="700" fill="{GREEN}">{cal["totalContributions"]:,}</text>')
+              o.append(f'<text x="{W-24}" y="56" text-anchor="end" font-family="{FONT}" font-size="12" fill="#8b949e">contributions in the last year</text>')
+
+              for i in range(5):
+                  y = bottom - ph * i / 4
+                  o.append(f'<line x1="{left}" y1="{y:.1f}" x2="{W-right}" y2="{y:.1f}" stroke="#21262d" stroke-width="1"/>')
+                  o.append(f'<text x="{left-8}" y="{y+4:.1f}" text-anchor="end" font-family="{FONT}" font-size="11" fill="#6e7681">{int(step*i):,}</text>')
+
+              for i, (v, lab) in enumerate(zip(vals, labels)):
+                  cx = left + slot * i + slot / 2
+                  x = cx - bw / 2
+                  h = max(2.0, ph * v / top_val) if top_val else 2.0
+                  y = bottom - h
+                  d = 0.15 + i * 0.09
+                  fill = "url(#bar)" if v > 0 else "#30363d"
+                  op = 1 if i == peak else 0.72
+                  o.append(f'<rect x="{x:.1f}" y="{bottom}" width="{bw:.1f}" height="0" rx="4" fill="{fill}" opacity="{op}">'
+                           f'<animate attributeName="height" from="0" to="{h:.1f}" begin="{d:.2f}s" dur="0.8s" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1" fill="freeze"/>'
+                           f'<animate attributeName="y" from="{bottom}" to="{y:.1f}" begin="{d:.2f}s" dur="0.8s" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1" fill="freeze"/>'
+                           + (f'<animate attributeName="opacity" values="1;0.75;1" dur="3s" begin="{d+1:.2f}s" repeatCount="indefinite"/>' if i == peak else '')
+                           + '</rect>')
+                  o.append(f'<text x="{cx:.1f}" y="{y-7:.1f}" text-anchor="middle" font-family="{FONT}" font-size="11" font-weight="600" fill="{GREEN if i == peak else "#c9d1d9"}" opacity="0">{v:,}'
+                           f'<animate attributeName="opacity" from="0" to="1" begin="{d+0.6:.2f}s" dur="0.4s" fill="freeze"/></text>')
+                  o.append(f'<text x="{cx:.1f}" y="{bottom+20}" text-anchor="middle" font-family="{FONT}" font-size="12" fill="#8b949e">{html.escape(lab)}</text>')
+
+              o.append(f'<text x="{W-24}" y="{H-8}" text-anchor="end" font-family="{FONT}" font-size="10" fill="#6e7681">Updated {datetime.date.today().isoformat()}</text>')
+              o.append('</svg>')
+              return "\n".join(o)
+
+
+          def donut_chart(col):
+              items = [
+                  ("Commits", col["totalCommitContributions"], GREEN),
+                  ("Pull requests", col["totalPullRequestContributions"], CYAN),
+                  ("Code reviews", col["totalPullRequestReviewContributions"], "#7c9cff"),
+                  ("Issues", col["totalIssueContributions"], "#f2cc60"),
+                  ("Private / other", col["restrictedContributionsCount"], "#8b949e"),
+              ]
+              total = sum(v for _, v, _ in items)
+              W, H = 600, 312
+              cx, cy, r, sw = 150, 184, 82, 28
+              C = 2 * math.pi * r
+
+              o = []
+              o.append(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-labelledby="t">')
+              o.append('<title id="t">Breakdown of my GitHub contributions by type</title>')
+              o.append('<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#010409"/></linearGradient></defs>')
+              o.append(f'<rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="16" fill="url(#bg)" stroke="#30363d"/>')
+              o.append(f'<text x="24" y="36" font-family="{FONT}" font-size="18" font-weight="700" fill="#e6edf3">Contribution breakdown</text>')
+              o.append(f'<text x="24" y="56" font-family="{FONT}" font-size="12" fill="#8b949e">By type, last 12 months</text>')
+              o.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#21262d" stroke-width="{sw}"/>')
+
+              shown = [(l, v, c) for l, v, c in items if v > 0]
+              gap = 3 if len(shown) > 1 else 0
+              start = 0.0
+              for idx, (label, v, color) in enumerate(shown):
+                  frac = v / total
+                  length = max(0.5, frac * C - gap)
+                  off = -(start * C + gap / 2)
+                  d = 0.2 + idx * 0.35
+                  o.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{color}" stroke-width="{sw}" '
+                           f'stroke-dasharray="0 {C:.2f}" stroke-dashoffset="{off:.2f}" transform="rotate(-90 {cx} {cy})">'
+                           f'<animate attributeName="stroke-dasharray" from="0 {C:.2f}" to="{length:.2f} {C-length:.2f}" begin="{d:.2f}s" dur="0.7s" fill="freeze"/></circle>')
+                  start += frac
+
+              o.append(f'<text x="{cx}" y="{cy+6}" text-anchor="middle" font-family="{FONT}" font-size="28" font-weight="700" fill="#e6edf3">{total:,}</text>')
+              o.append(f'<text x="{cx}" y="{cy+26}" text-anchor="middle" font-family="{FONT}" font-size="12" fill="#8b949e">contributions</text>')
+
+              for i, (label, v, color) in enumerate(items):
+                  y = 118 + i * 36
+                  pct = ("<1%" if 0 < v / total < 0.005 else f"{v / total * 100:.0f}%") if total else "0%"
+                  o.append(f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" begin="{0.4 + i * 0.2:.2f}s" dur="0.5s" fill="freeze"/>'
+                           f'<rect x="300" y="{y-12}" width="14" height="14" rx="4" fill="{color}"/>'
+                           f'<text x="324" y="{y}" font-family="{FONT}" font-size="15" fill="#c9d1d9">{html.escape(label)}</text>'
+                           f'<text x="{W-84}" y="{y}" text-anchor="end" font-family="{FONT}" font-size="15" font-weight="600" fill="#e6edf3">{v:,}</text>'
+                           f'<text x="{W-24}" y="{y}" text-anchor="end" font-family="{FONT}" font-size="13" fill="#8b949e">{html.escape(pct)}</text></g>')
+
+              o.append(f'<text x="{W-24}" y="{H-8}" text-anchor="end" font-family="{FONT}" font-size="10" fill="#6e7681">Updated {datetime.date.today().isoformat()}</text>')
+              o.append('</svg>')
+              return "\n".join(o)
+
+
+          def main(load_fn=load):
+              col = load_fn()
+              os.makedirs(OUT, exist_ok=True)
+              with open(os.path.join(OUT, "contribution-bars.svg"), "w") as f:
+                  f.write(bar_chart(col))
+              with open(os.path.join(OUT, "contribution-donut.svg"), "w") as f:
+                  f.write(donut_chart(col))
+              print("charts written:", col["contributionCalendar"]["totalContributions"], "contributions")
+
+
+          if __name__ == "__main__":
+              main()
+          PY
+
       # Publishes the SVGs to a separate "output" branch so your main branch stays clean
       - name: Push to the output branch
         run: |
