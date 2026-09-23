@@ -213,14 +213,4 @@
 
 <!-- ======================= CONTACT ======================= -->
 
-<h2 align="center"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=2500&pause=1000&color=39FF14&center=true&vCenter=true&repeat=false&width=640&height=50&lines=Let%27s+Build+Something+Together" alt="Let's Build Something Together" /></h2>
 
-<div align="center">
-
-<img src="./assets/glow-line.svg" width="600" alt="Animated glowing divider" />
-
-<p>
-  <a href="mailto:akshaybiju638@gmail.com"><img src="https://img.shields.io/badge/akshaybiju638%40gmail.com-0D1117?style=for-the-badge&logo=gmail&logoColor=39FF14" alt="Email akshaybiju638@gmail.com" /></a>
-</p>
-
-</div>
